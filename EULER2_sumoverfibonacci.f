@@ -1,0 +1,22 @@
+      PROGRAM EVENFIBSUM
+C *** INITIALIZE PARAMETERS
+      NLIMIT = 4000000
+      NSUM = 0
+      NLAST = 0
+      NCURRENT = 1
+      NVALUE = 0
+C *** ALGORITHM
+      DO 10 WHILE(NVALUE.LE.NLIMIT)
+        NVALUE = NLAST + NCURRENT
+        IF(MOD(NVALUE,2).EQ.0) THEN
+          NSUM = NSUM + NVALUE
+        ELSE
+          NSUM = NSUM
+        ENDIF
+        NLAST = NCURRENT
+        NCURRENT = NVALUE
+   10 CONTINUE
+        
+      WRITE(*,*) "THE SUM IS"
+      WRITE(*,*) NSUM
+      END
